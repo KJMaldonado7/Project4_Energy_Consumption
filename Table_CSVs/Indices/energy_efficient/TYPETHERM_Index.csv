@@ -1,0 +1,6 @@
+Value,Description
+1,"Yes, a manual or non-programmable thermostat"
+2,"Yes, a programmable thermostat"
+3,"Yes, a ""smart"" or Internet-connected thermostat"
+0,Does not have a thermostat for heating or cooling
+-2,Not applicable

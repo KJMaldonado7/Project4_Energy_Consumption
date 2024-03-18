@@ -1,0 +1,11 @@
+Value,Description
+3,Central furnace
+2,Steam or hot water system with radiators or pipes
+4,Central heat pump
+13,"Ductless heat pump, also known as a ""mini-split"""
+5,"Built-in electric units installed in walls, ceilings, baseboards, or floors"
+7,Built-in room heater burning gas or oil
+8,Wood or pellet stove
+10,Portable electric heaters
+99,Other
+-2,Not applicable
