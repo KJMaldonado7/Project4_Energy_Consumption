@@ -38,16 +38,31 @@ The findings from our analyses, along with their corresponding results, have bee
 #### Model 1
 *EXAMPLE TABLE*
 
-| Variable | Value |
-| --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
+| Metric             | Value              |
+|--------------------|--------------------|
+| Accuracy           | 0.5789             |
+
+| Classification Report:       |                  |
+|------------------------------|------------------|
+|              | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| Class 0      |    0.65   |  0.65  |   0.65   |  1232   |
+| Class 1      |    0.47   |  0.35  |   0.40   |  1266   |
+| Class 2      |    0.59   |  0.74  |   0.66   |  1202   |
+|--------------|-----------|--------|----------|---------|
+|    accuracy  |           |        |   0.58   |  3700   |
+|   macro avg  |    0.57   |  0.58  |   0.57   |  3700   |
+|weighted avg  |    0.57   |  0.58  |   0.57   |  3700   |
+
+| Confusion Matrix:  |               |
+|---------------------|---------------|
+|                    | Predicted     |
+|                    | 0    | 1   | 2  |
+|--------------------|------|-----|----|
+| Actual 0           |  806 | 290 |136 |
+| Actual 1           |  343 | 446 |477 |
+| Actual 2           |  90  | 222 |890 |
+
 
 *Commentary on results. Next step chosen and why.*
 
