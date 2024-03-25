@@ -127,7 +127,7 @@ In our final attempt, we implemented a crucial step by categorizing the energy c
 After conducting ten iterations and trials, our objective of achieving a minimum accuracy threshold of 75% or an R-squared value of 0.75 led us to explore several models, including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network. Throughout these endeavors, we adjusted hyperparameters, engineered features, manipulated targets, and employed diverse data splits to safeguard against model overfitting. ​However, it was only after the decision to discretize the target variables that we ultimately realized favorable outcomes from our model.
 The refined model employed linear regression with binned targets to deliver the desired results.
 
-The tables below summarize the most pertinent experiments conducted along with their respective results. Each table's name corresponds to the specific attempt of the model, providing a clear reference for further analysis and comparison.
+The tables below summarize the most pertinent experiments conducted along with their respective results. Each table's name corresponds to the specific model attempt, providing a clear reference for further analysis and comparison.
 
 The attempts files are saved in the folder `regional_attempts`.
 
@@ -168,7 +168,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 | Features | regionc, division, state_postal, ba_climate |
 | Target preparation | *StandardScaler*|
 | Data Split| test_size=0.2|
-| Model | *Deep Neural Network*  |
+| Model | *Keras Sequential*  |
 | Number of Hidden Layers | 2 |
 | Hidden Layer 1 Neurons | *80* |
 | Hidden Layer 1 Activation Function | ReLU |
