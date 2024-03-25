@@ -121,32 +121,101 @@ The refined model employed linear regression with binned targets to deliver the 
 | --- | --- |
 | Target | totalbtu |
 | Features | regionc, division, state_postal, ba_climate |
-| Data Split| test_size=0.4|#
+| Data Split| *test_size=0.4*|
 | Model | Linear Regression / Random Forest  |
 | Optimizer | RandomForestRegressor |
 | Model Accuracy | 0.10938294576918528 |
 
-
-
-*Commentary on results. Next step chosen and why.*
-
-**REPEAT BASED ON NUMBER OF STEPS IN YOUR CODE**
-
-#### Model ___ (final)
-*EXAMPLE TABLE*
-
+#### Model 3
 | Variable | Value |
 | --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
+| Target | totalbtu |
+| Features | regionc, division, state_postal, ba_climate |
+| Data Split| *test_size=0.2*|
+| Model | Linear Regression / Random Forest  |
+| Optimizer | RandomForestRegressor |
+| Model Accuracy | 0.10983332942014756|
 
-*Commentary on results. We finally achieved ____ result.*
+#### Model 4
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu |
+| Features | regionc, division, state_postal, ba_climate |
+| Data Split| test_size=0.2|
+| Model | *CatBooster*  |
+| Model Accuracy | 0.11186680602851973|
+
+#### Model 5
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu |
+| Features | regionc, division, state_postal, ba_climate |
+| Data Split| test_size=0.2|
+| Model | *LightGBM*  |
+| Model Accuracy | 0.11176486825412113|
+
+#### Model 6
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu, *totaldol*|
+| Features | regionc, division, state_postal, ba_climate |
+| Data Split| test_size=0.2|
+| Model | *Linear Regression / Random Forest*  |
+| Optimizer | *RandomForestRegressor*  |
+| Model Accuracy | 0.10588019592447939|
+
+#### Model 8
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu, totaldol|
+| Features | regionc, division, state_postal, ba_climate |
+| Target preparation | *StandardScaler*|
+| Data Split| test_size=0.2|
+| Model | *Deep Neural Network*  |
+| Number of Hidden Layers | 2 |
+| Hidden Layer 1 Neurons | 8 |
+| Hidden Layer 1 Activation Function | ReLU |
+| Hidden Layer 2 Neurons | 5 |
+| Hidden Layer 2 Activation Function | ReLU |
+| Output Layer Activation Function | Linear |
+| Number of Epochs | 100 |
+| Model Accuracy | 0.0000e+00 |
+
+#### Model 9
+| Variable | Value |
+| --- | --- |
+| Target | *totalbtu*|
+| Features | regionc, division, state_postal, ba_climate |
+| Target preparation | *StandardScaler*|
+| Data Split| test_size=0.2|
+| Model | *Deep Neural Network*  |
+| Number of Hidden Layers | 2 |
+| Hidden Layer 1 Neurons | *80* |
+| Hidden Layer 1 Activation Function | ReLU |
+| Hidden Layer 2 Neurons | *30* |
+| Hidden Layer 2 Activation Function | ReLU |
+| Output Layer Activation Function | *Sigmoid* |
+| Number of Epochs | *100* |
+| Model Accuracy | 0.0000e+00 |
+
+#### Model 10 - (final)
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu *(binned the Target)*|
+| Features | regionc, division, state_postal, ba_climate |
+| Data Split| *test_size=0.05* |
+| Model | Linear Regression  |
+| Model Accuracy | 0.7529492375445945 |
+
+On the final model, after we binned the target we could, finally reach 75% of accuracy on the model.
+`def bin_total_btu(total_btu):
+    if total_btu < 55000:
+        return 'Low'
+    elif total_btu >= 55000 and total_btu < 95000:
+        return 'Medium'
+    else:
+        return 'High'`
+
 
 ### Demographic Information - Austin
 We chose this model and here's why.
