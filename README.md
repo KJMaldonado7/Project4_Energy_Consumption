@@ -124,11 +124,13 @@ In our journey to improve energy efficiency predictions, we tried out several di
 In our final attempt, we implemented a crucial step by categorizing the energy consumption DataFrame into three distinct bins: 'Low', 'Medium', and 'High'. This categorization was based on specific thresholds of 55000 and 95000, effectively dividing the data into different consumption levels for better analysis. The bin_total_btu function was applied to create a new column 'BTU_Bin' within the DataFrame, signifying the respective binned categories. Following this, one-hot encoding was utilized on the 'BTU_Bin' column to transform it into a numerical format suitable for machine learning models. During this process, the target variable 'totalbtu' was separated and labeled as 'y', while the features were organized and stored as 'X' for subsequent modeling and in-depth analysis. This systematic approach directly aligns with our primary objective of enhancing energy efficiency predictions by incorporating categorized energy levels into our modeling pipeline, thereby facilitating more accurate and insightful predictive modeling outcomes.
 
 ### Regional Information - Michele
-After conducting ten iterations and trials, our objective of achieving a minimum accuracy threshold of 75% or an R-squared value of 0.75 led us to explore several models including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network. Throughout these endeavors, we adjusted hyperparameters, engineered features, manipulated targets, and employed diverse data splits to safeguard against model overfitting. ​However, it was only after the decision to discretize the target variables that we ultimately realized favorable outcomes from our model.
+After conducting ten iterations and trials, our objective of achieving a minimum accuracy threshold of 75% or an R-squared value of 0.75 led us to explore several models, including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network. Throughout these endeavors, we adjusted hyperparameters, engineered features, manipulated targets, and employed diverse data splits to safeguard against model overfitting. ​However, it was only after the decision to discretize the target variables that we ultimately realized favorable outcomes from our model.
 The refined model employed linear regression with binned targets to deliver the desired results.
 
-The most relevant experiments conducted and their respective results are summarized in the tables below. 
-The attempts files are in the folder `regional_attempts,` and the table model numbers follow the file names.
+The tables below summarize the most pertinent experiments conducted along with their respective results. Each table's name corresponds to the specific attempt of the model, providing a clear reference for further analysis and comparison.
+
+The attempts files are saved in the folder `regional_attempts`.
+
 The final model is on the root under the name `Final_Regional_Model.ipynb`
 
 #### Model 1
