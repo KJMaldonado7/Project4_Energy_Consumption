@@ -208,13 +208,13 @@ The refined model employed linear regression with binned targets to deliver the 
 | Model Accuracy | 0.7529492375445945 |
 
 On the final model, after we binned the target we could, finally reach 75% of accuracy on the model.
-`def bin_total_btu(total_btu):
+```def bin_total_btu(total_btu):
     if total_btu < 55000:
         return 'Low'
     elif total_btu >= 55000 and total_btu < 95000:
         return 'Medium'
     else:
-        return 'High'`
+        return 'High'```
 
 
 ### Demographic Information - Austin
