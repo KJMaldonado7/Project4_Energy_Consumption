@@ -167,11 +167,11 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 ### Demographic Information - Austin
 We pulled demographic information from the energy consumption survey including data such as the age of the primary homeowner, number of children and total household members, and total household income, among other things. Our goal was to see if a machine learning model could accurately predict the home's total energy consumption (TOTALBTU) based on these demographic characteristics.
 
-Our first attempt involved setting the target variable as 'TOTALBTU' and the feature variables as the rest of the columns (minus the ID column) and initializing a linear regression model. This model proved to be quite ineffective, returning an r2 score of just .
+Our first attempt involved setting the target variable as 'TOTALBTU' and the feature variables as the rest of the columns (minus the ID column) and initializing a linear regression model. This model proved to be quite ineffective, returning an R<sup>2</sup> score of just 0.19.
 
 Our second attempt involved creating a scaler instance and using a Keras Seaquential model with three layers (relu, relu and sigmoid activations). However, his model consistently returned an error message at the training step and was ultimately unsuccessful.
 
-The final and most successful attempt incorprated binning of the 'TOTALBTU' column into three bins of 'Low,' 'Medium,' and 'High' energy output before initializing a linear regression model. With the data grouped into three distinct categories, the model was much more successful in predicting household energy output and returned an r2 score of .
+The final and most successful attempt incorprated binning of the 'TOTALBTU' column into three bins of 'Low,' 'Medium,' and 'High' energy output before initializing a linear regression model. With the data grouped into three distinct categories, the model was much more successful in predicting household energy output and returned an R<sup>2</sup> score of 0.79.
 
 #### Model 1
 
@@ -181,7 +181,7 @@ The final and most successful attempt incorprated binning of the 'TOTALBTU' colu
 | Features | hhsex, hhage, employhh, education, sdescent, householder_race, nhsldmem, numchild, moneypy |
 | Data Split| test_size=0.2 |
 | Model | Linear Regression |
-| Model Accuracy | 0. |
+| Model Accuracy | 0.18746129854499471 |
 
 #### Model 2 
 
@@ -210,9 +210,9 @@ The final and most successful attempt incorprated binning of the 'TOTALBTU' colu
 | Target preparation | *StandardScaler*|
 | Data Split| test_size=0.1, random_state=45 |
 | Model | Linear Regression  |
-| Model Accuracy | 0. |
+| Model Accuracy | 0.7938565177892568 |
 
-On the final model, after we binned the target we could, finally reach % accuracy on the model.
+On the final model, after we binned the target we could, finally reach over 79% accuracy on the model.
 ```def bin_total_btu(total_btu):
     if total_btu < 55000:
         return 'Low'
