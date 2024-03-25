@@ -102,7 +102,8 @@ We chose this model and here's why.
 *Commentary on results. We finally achieved ____ result.*
 
 ### Regional Information - Michele
-Describes the energy consumption in the USA according to the geographical location
+Describes the energy consumption in the USA according to the geographical location.
+
 After numerous iterations and trials, our pursuit of achieving a minimum accuracy of 75% led us to explore various models such as linear regression, Random Forest, CatBoost, and Deep Learning network. We conducted thorough investigations, including the manipulation of features and targets, as well as diverse data splits to prevent the model from overfitting. ​It was only when we opted to bin the target variables that we finally attained favorable outcomes from our model. 
 The refined model employed linear regression with binned targets to deliver the desired results.
 
