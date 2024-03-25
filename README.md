@@ -102,21 +102,31 @@ We chose this model and here's why.
 *Commentary on results. We finally achieved ____ result.*
 
 ### Regional Information - Michele
-We chose this model and here's why.
+Describes the energy consumption in the USA according to the geographical location
+After numerous iterations and trials, our pursuit of achieving a minimum accuracy of 75% led us to explore various models such as linear regression, Random Forest, CatBoost, and Deep Learning network. We conducted thorough investigations, including the manipulation of features and targets, as well as diverse data splits to prevent the model from overfitting. ​It was only when we opted to bin the target variables that we finally attained favorable outcomes from our model. 
+The refined model employed linear regression with binned targets to deliver the desired results.
 
 #### Model 1
-*EXAMPLE TABLE*
-
 | Variable | Value |
 | --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
+| Target | totalbtu |
+| Features | regionc, division, state_postal, ba_climate |
+| Data Split| test_size=0.25 |
+| Model | Linear Regression / Random Forest  |
+| Optimizer | RandomForestRegressor |
+| Model Accuracy | 0.10980100284209482 |
+
+#### Model 2
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu |
+| Features | regionc, division, state_postal, ba_climate |
+| Data Split| # test_size=0.25 # |
+| Model | Linear Regression / Random Forest  |
+| Optimizer | RandomForestRegressor |
+| Model Accuracy | 0.10980100284209482 |
+
+
 
 *Commentary on results. Next step chosen and why.*
 
