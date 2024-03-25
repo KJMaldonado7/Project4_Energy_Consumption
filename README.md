@@ -195,7 +195,7 @@ def bin_total_btu(total_btu):
     elif total_btu >= 55000 and total_btu < 95000:
         return 'Medium'
     else:
-        return 'High'```
+        return 'High' ```
 
 
 
