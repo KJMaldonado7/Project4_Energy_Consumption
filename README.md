@@ -121,7 +121,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | --- | --- |
 | Target | totalbtu |
 | Features | regionc, division, state_postal, ba_climate |
-#| Data Split| test_size=0.4|#
+| Data Split| test_size=0.4|#
 | Model | Linear Regression / Random Forest  |
 | Optimizer | RandomForestRegressor |
 | Model Accuracy | 0.10938294576918528 |
