@@ -66,12 +66,17 @@ We chose this model and here's why.
 
 ### Energy-efficient upgrades - Joanna
 In our journey to improve energy efficiency predictions, we tried out several different approaches to make sure our models were accurate at least close to 75% of the time. We tested various methods like Linear Regression, Random Forest, and Deep Learning networks. Additionally, we refined our data analysis techniques, implementing various data splitting strategies to foster improved learning within the models, avoiding mere memorization. 
+
+The trial files are stored in the directory 'energy_consumption_ML_tries'.
+
+The ultimate model is located in the root directory and named 'Final_Energy_Consumption_Model.ipynb'.
+
 #### Model 1
 
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Features | dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol |
 | Data Split| *test_size=0.2*|
 | Model | Random Forrest |
 | Optimizer | RandomForestRegressor|
@@ -82,7 +87,7 @@ In our journey to improve energy efficiency predictions, we tried out several di
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol  |
 | Data Split| *test_size=0.2*|
 | Model | Random Forrest |
 | Optimizer | RandomForestRegressor|
@@ -93,7 +98,7 @@ In our journey to improve energy efficiency predictions, we tried out several di
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol |
 | Data Split| *test_size=0.2*|
 | Model | Linear Regression |
 | Optimizer | Linear Regression |
@@ -104,7 +109,7 @@ In our journey to improve energy efficiency predictions, we tried out several di
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol |
 | Data Split| *test_size=0.1*|
 | Model | Linear Regression |
 | Optimizer | Linear Regression |
@@ -115,7 +120,7 @@ In our journey to improve energy efficiency predictions, we tried out several di
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol  |
 | Data Split| *test_size=0.2*|
 | Model | Linear Regression |
 | Optimizer | Linear Regression |
