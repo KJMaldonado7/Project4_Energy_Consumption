@@ -65,41 +65,63 @@ We chose this model and here's why.
 *Commentary on results. We finally achieved ____ result.*
 
 ### Energy-efficient upgrades - Joanna
-We chose this model and here's why.
-
+In our journey to improve energy efficiency predictions, we tried out several different approaches to make sure our models were accurate at least close to 75% of the time. We tested various methods like Linear Regression, Random Forest, and Deep Learning networks. Additionally, we refined our data analysis techniques, implementing various data splitting strategies to foster improved learning within the models, avoiding mere memorization. 
 #### Model 1
-*EXAMPLE TABLE*
 
 | Variable | Value |
 | --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
+| Target | totalbtu |
+| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Data Split| *test_size=0.2*|
+| Model | Random Forrest |
+| Optimizer | RandomForestRegressor|
+| R<sup>2</sup> | 0.5760602548867669
 
-*Commentary on results. Next step chosen and why.*
-
-**REPEAT BASED ON NUMBER OF STEPS IN YOUR CODE**
-
-#### Model ___ (final)
-*EXAMPLE TABLE*
+#### Model 2
 
 | Variable | Value |
 | --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
+| Target | totalbtu |
+| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Data Split| *test_size=0.2*|
+| Model | Random Forrest |
+| Optimizer | RandomForestRegressor|
+| R<sup>2</sup> | 0.5772147759816009
 
-*Commentary on results. We finally achieved ____ result.*
+#### Model 3
+
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu |
+| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Data Split| *test_size=0.2*|
+| Model | Linear Regression |
+| Optimizer | Linear Regression |
+| R<sup>2</sup> | 0.5994969333217187 |
+
+#### Model 4
+
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu |
+| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Data Split| *test_size=0.1*|
+| Model | Linear Regression |
+| Optimizer | Linear Regression |
+| R<sup>2</sup> | 0.6994187472726883 |
+
+#### Model 5 (final)
+
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu |
+| Features | DWCYCLE,TVTYPE1,TYPETHERM,LGTINLED,SMARTMETER,SOLAR,ELECVEH,TOTALDOL |
+| Data Split| *test_size=0.2*|
+| Model | Linear Regression |
+| Optimizer | Linear Regression |
+| R<sup>2</sup> | 0.7933460682175177 |
+
+In our final attempt, we implemented a crucial step by categorizing the energy consumption DataFrame into three distinct bins: 'Low', 'Medium', and 'High'. This categorization was based on specific thresholds of 55000 and 95000, effectively dividing the data into different consumption levels for better analysis. The bin_total_btu function was applied to create a new column 'BTU_Bin' within the DataFrame, signifying the respective binned categories. Following this, one-hot encoding was utilized on the 'BTU_Bin' column to transform it into a numerical format suitable for machine learning models. During this process, the target variable 'totalbtu' was separated and labeled as 'y', while the features were organized and stored as 'X' for subsequent modeling and in-depth analysis. This systematic approach directly aligns with our primary objective of enhancing energy efficiency predictions by incorporating categorized energy levels into our modeling pipeline, thereby facilitating more accurate and insightful predictive modeling outcomes.
 
 ### Regional Information - Michele
 After conducting ten iterations and trials, our objective of achieving a minimum accuracy threshold of 75% or an R-squared value of 0.75 led us to explore several models including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network. Throughout these endeavors, we adjusted hyperparameters, engineered features, manipulated targets, and employed diverse data splits to safeguard against model overfitting. ​However, it was only after the decision to discretize the target variables that we ultimately realized favorable outcomes from our model.
