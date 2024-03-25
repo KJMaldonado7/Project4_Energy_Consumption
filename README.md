@@ -1,7 +1,7 @@
 # Energy Consumption and Cost
 
 ## Overview
-We attempted to build a machine learning model that could accurately predict estimated costs and consumption of energy by houses based on a variety of characteristics. Our goal is to achieve over 75% accuracy or an R<sup>2</sup> value above .75.
+We attempted to build a machine learning model that could accurately predict estimated costs and consumption of energy by houses based on a variety of characteristics. Our goal is to achieve over 75% accuracy or an R<sup>2</sup> value above 0.75.
 
 ### Data Source
 We used data from the US Energy Information Administration's [2020 Residential Energy Consumption Survey](https://www.eia.gov/consumption/residential/data/2020/index.php?view=microdata). We initially downloaded this data as a CSV for initial cleaning. That file is in the main repo under `recs2020_public_v7.csv`.
@@ -104,7 +104,7 @@ We chose this model and here's why.
 ### Regional Information - Michele
 Describes the energy consumption in the USA according to the geographical location.
 
-After numerous iterations and trials, our pursuit of achieving a minimum accuracy of 75% led us to explore various models such as linear regression, Random Forest, CatBoost, and Deep Learning network. We conducted thorough investigations, including the manipulation of features and targets, as well as diverse data splits to prevent the model from overfitting. ​It was only when we opted to bin the target variables that we finally attained favorable outcomes from our model. 
+After 10 iterations and trials, our pursuit of achieving a minimum accuracy of 75% or R<sup>2</sup> led us to explore various models such as linear regression, Random Forest, CatBoost, LightGBM, and Deep Learning network. We conducted thorough investigations, including the manipulation of features and targets, as well as diverse data splits to prevent the model from overfitting. ​It was only when we opted to bin the target variables that we finally attained favorable outcomes from our model. 
 The refined model employed linear regression with binned targets to deliver the desired results.
 
 #### Model 1
