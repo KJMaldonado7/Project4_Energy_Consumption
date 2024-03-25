@@ -36,7 +36,7 @@ The findings from our analyses, along with their corresponding results, have bee
  encapsulates our approach and outcomes comprehensively.
 
 #### Model 1
-*EXAMPLE TABLE*
+Logistic Regression
 
 | Metric             | Value              |
 |--------------------|--------------------|
