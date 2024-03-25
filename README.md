@@ -115,7 +115,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | Data Split| test_size=0.25 |
 | Model | Linear Regression / Random Forest  |
 | Optimizer | RandomForestRegressor |
-| Model Accuracy | 0.10980100284209482 |
+| R<sup>2</sup> | 0.10980100284209482 |
 
 #### Model 2
 | Variable | Value |
@@ -125,7 +125,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | Data Split| *test_size=0.4*|
 | Model | Linear Regression / Random Forest  |
 | Optimizer | RandomForestRegressor |
-| Model Accuracy | 0.10938294576918528 |
+| R<sup>2</sup> | 0.10938294576918528 |
 
 #### Model 3
 | Variable | Value |
@@ -135,7 +135,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | Data Split| *test_size=0.2*|
 | Model | Linear Regression / Random Forest  |
 | Optimizer | RandomForestRegressor |
-| Model Accuracy | 0.10983332942014756|
+| R<sup>2</sup> | 0.10983332942014756|
 
 #### Model 4
 | Variable | Value |
@@ -144,7 +144,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | Features | regionc, division, state_postal, ba_climate |
 | Data Split| test_size=0.2|
 | Model | *CatBooster*  |
-| Model Accuracy | 0.11186680602851973|
+| R<sup>2</sup> | 0.11186680602851973|
 
 #### Model 5
 | Variable | Value |
@@ -153,7 +153,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | Features | regionc, division, state_postal, ba_climate |
 | Data Split| test_size=0.2|
 | Model | *LightGBM*  |
-| Model Accuracy | 0.11176486825412113|
+| R<sup>2</sup> | 0.11176486825412113|
 
 #### Model 6
 | Variable | Value |
@@ -163,7 +163,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | Data Split| test_size=0.2|
 | Model | *Linear Regression / Random Forest*  |
 | Optimizer | *RandomForestRegressor*  |
-| Model Accuracy | 0.10588019592447939|
+| R<sup>2</sup> | 0.10588019592447939|
 
 #### Model 8
 | Variable | Value |
@@ -206,7 +206,7 @@ The refined model employed linear regression with binned targets to deliver the 
 | Features | regionc, division, state_postal, ba_climate |
 | Data Split| *test_size=0.05* |
 | Model | Linear Regression  |
-| Model Accuracy | 0.7529492375445945 |
+| R<sup>2</sup> | 0.7529492375445945 |
 
 On the final model, after we binned the target we could, finally reach 75% of accuracy on the model.
 ```def bin_total_btu(total_btu):
