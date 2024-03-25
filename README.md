@@ -102,10 +102,12 @@ We chose this model and here's why.
 *Commentary on results. We finally achieved ____ result.*
 
 ### Regional Information - Michele
-Describes the energy consumption in the USA according to the geographical location.
-
-After 10 iterations and trials, our pursuit of achieving a minimum accuracy of 75% or R<sup>2</sup> led us to explore various models such as linear regression, Random Forest, CatBoost, LightGBM, and Deep Learning network. We conducted thorough investigations, including the manipulation of features and targets, as well as diverse data splits to prevent the model from overfitting. ​It was only when we opted to bin the target variables that we finally attained favorable outcomes from our model. 
+After conducting ten iterations and trials, our objective of achieving a minimum accuracy threshold of 75% or an R-squared value of 0.75 led us to explore several models including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network. Throughout these endeavors, we adjusted hyperparameters, engineered features, manipulated targets, and employed diverse data splits to safeguard against model overfitting. ​However, it was only after the decision to discretize the target variables that we ultimately realized favorable outcomes from our model.
 The refined model employed linear regression with binned targets to deliver the desired results.
+
+The most relevant experiments conducted and their respective results are summarized in the tables below. 
+The attempts files are in the folder `regional_attempts,` and the table model numbers follow the file names.
+The final model is on the root under the name `Final_Regional_Model.ipynb`
 
 #### Model 1
 | Variable | Value |
@@ -116,26 +118,6 @@ The refined model employed linear regression with binned targets to deliver the 
 | Model | Linear Regression / Random Forest  |
 | Optimizer | RandomForestRegressor |
 | R<sup>2</sup> | 0.10980100284209482 |
-
-#### Model 2
-| Variable | Value |
-| --- | --- |
-| Target | totalbtu |
-| Features | regionc, division, state_postal, ba_climate |
-| Data Split| *test_size=0.4*|
-| Model | Linear Regression / Random Forest  |
-| Optimizer | RandomForestRegressor |
-| R<sup>2</sup> | 0.10938294576918528 |
-
-#### Model 3
-| Variable | Value |
-| --- | --- |
-| Target | totalbtu |
-| Features | regionc, division, state_postal, ba_climate |
-| Data Split| *test_size=0.2*|
-| Model | Linear Regression / Random Forest  |
-| Optimizer | RandomForestRegressor |
-| R<sup>2</sup> | 0.10983332942014756|
 
 #### Model 4
 | Variable | Value |
@@ -154,33 +136,6 @@ The refined model employed linear regression with binned targets to deliver the 
 | Data Split| test_size=0.2|
 | Model | *LightGBM*  |
 | R<sup>2</sup> | 0.11176486825412113|
-
-#### Model 6
-| Variable | Value |
-| --- | --- |
-| Target | totalbtu, *totaldol*|
-| Features | regionc, division, state_postal, ba_climate |
-| Data Split| test_size=0.2|
-| Model | *Linear Regression / Random Forest*  |
-| Optimizer | *RandomForestRegressor*  |
-| R<sup>2</sup> | 0.10588019592447939|
-
-#### Model 8
-| Variable | Value |
-| --- | --- |
-| Target | totalbtu, totaldol|
-| Features | regionc, division, state_postal, ba_climate |
-| Target preparation | *StandardScaler*|
-| Data Split| test_size=0.2|
-| Model | *Deep Neural Network*  |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 8 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 5 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Linear |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.0000e+00 |
 
 #### Model 9
 | Variable | Value |
@@ -207,16 +162,6 @@ The refined model employed linear regression with binned targets to deliver the 
 | Data Split| *test_size=0.05* |
 | Model | Linear Regression  |
 | R<sup>2</sup> | 0.7529492375445945 |
-
-On the final model, after we binned the target we could, finally reach 75% of accuracy on the model.
-```def bin_total_btu(total_btu):
-    if total_btu < 55000:
-        return 'Low'
-    elif total_btu >= 55000 and total_btu < 95000:
-        return 'Medium'
-    else:
-        return 'High`
-```
 
 
 ### Demographic Information - Austin
