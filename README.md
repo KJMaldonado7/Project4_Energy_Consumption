@@ -215,7 +215,8 @@ On the final model, after we binned the target we could, finally reach 75% of ac
     elif total_btu >= 55000 and total_btu < 95000:
         return 'Medium'
     else:
-        return 'High'```
+        return 'High`
+```
 
 
 ### Demographic Information - Austin
