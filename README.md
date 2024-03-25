@@ -27,7 +27,7 @@ For all of ur models, we removed the `DOIED` variable, which is just an identifi
 
 ## Compiling, Training, and Evaluating the Models
 
-### Housing Characterics - Keisha
+### Housing Characterics - Keisha, Joseph
 Upon employing machine learning techniques to generate predictions based on our designated dataset, our objective was to attain a minimum accuracy threshold of 75% or an R-squared value of 0.75. This pursuit led us to explore various models, including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network.
 
 Throughout our exploration, we meticulously adjusted hyperparameters, engineered features, manipulated targets, and implemented diverse data splits to mitigate the risk of model overfitting. However, it was only upon the decision to discretize the target variables that we ultimately observed favorable outcomes from our model. Subsequently, we refined our approach, employing linear regression with binned targets to achieve the desired results.
