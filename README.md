@@ -265,6 +265,7 @@ On the final model, after we binned the target we were finally able to reach ove
         return 'Medium'
     else:
         return 'High`
+```
 
 ## Summary
 Our best results came after binning our target variables (whether that be `TOTALBTU` or `TOTALDOL`). This likely the result of the large variance of our target variables and as a result, it makes sense to bin them as we did. This allowed us to achieve our 75% accuracy goal and 80% R<sup>2</sup> value.
