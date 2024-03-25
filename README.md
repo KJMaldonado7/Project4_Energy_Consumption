@@ -165,41 +165,61 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 
 
 ### Demographic Information - Austin
-We chose this model and here's why.
+We pulled demographic information from the energy consumption survey including data such as the age of the primary homeowner, number of children and total household members, and total household income, among other things. Our goal was to see if a machine learning model could accurately predict the home's total energy consumption (TOTALBTU) based on these demographic characteristics.
+
+Our first attempt involved setting the target variable as 'TOTALBTU' and the feature variables as the rest of the columns (minus the ID column) and initializing a linear regression model. This model proved to be quite ineffective, returning an r2 score of just .
+
+Our second attempt involved creating a scaler instance and using a Keras Seaquential model with three layers (relu, relu and sigmoid activations). However, his model consistently returned an error message at the training step and was ultimately unsuccessful.
+
+The final and most successful attempt incorprated binning of the 'TOTALBTU' column into three bins of 'Low,' 'Medium,' and 'High' energy output before initializing a linear regression model. With the data grouped into three distinct categories, the model was much more successful in predicting household energy output and returned an r2 score of .
 
 #### Model 1
-*EXAMPLE TABLE*
 
 | Variable | Value |
 | --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
+| Target | totalbtu |
+| Features | hhsex, hhage, employhh, education, sdescent, householder_race, nhsldmem, numchild, moneypy |
+| Data Split| test_size=0.2 |
+| Model | Linear Regression |
+| Model Accuracy | 0. |
 
-*Commentary on results. Next step chosen and why.*
-
-**REPEAT BASED ON NUMBER OF STEPS IN YOUR CODE**
-
-#### Model ___ (final)
-*EXAMPLE TABLE*
+#### Model 2 
 
 | Variable | Value |
 | --- | --- |
+| Target | totalbtu |
+| Features | hhsex, hhage, employhh, education, sdescent, householder_race, nhsldmem, numchild, moneypy |
+| Target preparation | *StandardScaler*|
+| Data Split| random_state=78 |
+| Model | Keras Sequential  |
 | Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
+| Hidden Layer 1 Neurons | *6* |
 | Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
+| Hidden Layer 2 Neurons | *6* |
 | Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
+| Output Layer Activation Function | *Sigmoid* |
+| Number of Epochs | *100* |
+| Model Accuracy | N/A - error |
 
-*Commentary on results. We finally achieved ____ result.*
+#### Model 3 - (final) 
+
+| Variable | Value |
+| --- | --- |
+| Target | totalbtu |
+| Features | hhsex, hhage, employhh, education, sdescent, householder_race, nhsldmem, numchild, moneypy |
+| Target preparation | *StandardScaler*|
+| Data Split| test_size=0.1, random_state=45 |
+| Model | Linear Regression  |
+| Model Accuracy | 0. |
+
+On the final model, after we binned the target we could, finally reach % accuracy on the model.
+```def bin_total_btu(total_btu):
+    if total_btu < 55000:
+        return 'Low'
+    elif total_btu >= 55000 and total_btu < 95000:
+        return 'Medium'
+    else:
+        return 'High`
 
 ## Summary
 Our best results came after binning our target variables (whether that be `TOTALBTU` or `TOTALDOL`). This likely the result of the large variance of our target variables and as a result, it makes sense to bin them as we did. This allowed us to acheive our 75% accuracy goal and 80% R<sup>2</sup> value.
