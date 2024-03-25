@@ -165,7 +165,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 
 
 ### Demographic Information - Austin
-We pulled demographic information from the energy consumption survey including data such as the age of the primary homeowner, number of children and total household members, and total household income, among other things. Our goal was to see if a machine learning model could accurately predict the home's total energy consumption (TOTALBTU) based on these demographic characteristics.
+We pulled demographic information from the energy consumption survey including data such as the age of the primary homeowner, number of children and total household members, and total household income, among other things. Our goal was to see if a machine learning model could accurately predict the home's total energy consumption ('TOTALBTU') based on these demographic characteristics.
 
 Our first attempt involved setting the target variable as 'TOTALBTU' and the feature variables as the rest of the columns (minus the ID column) and initializing a linear regression model. This model proved to be quite ineffective, returning an R<sup>2</sup> score of just 0.19.
 
@@ -212,7 +212,7 @@ The final and most successful attempt incorprated binning of the 'TOTALBTU' colu
 | Model | Linear Regression  |
 | Model Accuracy | 0.7938565177892568 |
 
-On the final model, after we binned the target we could, finally reach over 79% accuracy on the model.
+On the final model, after we binned the target we were finally able to reach over 79% accuracy.
 ```def bin_total_btu(total_btu):
     if total_btu < 55000:
         return 'Low'
