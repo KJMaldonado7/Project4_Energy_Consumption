@@ -103,6 +103,18 @@ Random Forest Regressor was then used in the hopes of achieving a higher R2 valu
 | Optimizer | None |
 | R<sup>2</sup> | 0.47 |
 
+| Classification Report:       |                  |
+|------------------------------|------------------|
+|              | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| Class 0      |    0.69   |  0.71  |   0.70   |  1232   |
+| Class 1      |    0.50   |  0.45  |   0.47   |  1266   |
+| Class 2      |    0.65   |  0.69  |   0.67   |  1202   |
+|--------------|-----------|--------|----------|---------|
+|    accuracy  |           |        |   0.61   |  3700   |
+|   macro avg  |    0.61   |  0.62  |   0.61   |  3700   |
+|weighted avg  |    0.61   |  0.61  |   0.61   |  3700   |
+
 The Random Forest model was then adjusted only to include variables that had a high feature importance value (totsqft_en, equipm, totrooms, yearmaderange, and typehuq)
 
 #### Model 2 - Random Forest Attempt 2 
@@ -116,6 +128,18 @@ The Random Forest model was then adjusted only to include variables that had a h
 | N Estimator | 100 |
 | Optimizer | None |
 | R<sup>2</sup> | 0.37 |
+
+| Classification Report:       |                  |
+|------------------------------|------------------|
+|              | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| Class 0      |    0.73   |  0.71  |   0.72   |  1232   |
+| Class 1      |    0.52   |  0.49  |   0.51   |  1266   |
+| Class 2      |    0.67   |  0.73  |   0.70   |  1202   |
+|--------------|-----------|--------|----------|---------|
+|    accuracy  |           |        |   0.64   |  3700   |
+|   macro avg  |    0.64   |  0.64  |   0.64   |  3700   |
+|weighted avg  |    0.64   |  0.64  |   0.64   |  3700   |
 
 With a score of .37, I switched over to a DNN
 
@@ -172,6 +196,33 @@ With a score of .37, I switched over to a DNN
 *Commentary on results. Next step chosen and why.*
 
 **REPEAT BASED ON NUMBER OF STEPS IN YOUR CODE**
+
+#### Model 5
+Feedforward Neural Network
+| Metric             | Value              |
+|--------------------|--------------------|
+| Accuracy           | 0.64               |
+| Classification Report:       |                  |
+|------------------------------|------------------|
+|              | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| Class 0      |    0.72   |  0.72  |   0.72   |  1232   |
+| Class 1      |    0.52   |  0.47  |   0.49   |  1266   |
+| Class 2      |    0.67   |  0.74  |   0.70   |  1202   |
+|--------------|-----------|--------|----------|---------|
+|    accuracy  |           |        |   0.64   |  3700   |
+|   macro avg  |    0.64   |  0.64  |   0.64   |  3700   |
+|weighted avg  |    0.64   |  0.64  |   0.64   |  3700   |
+| Confusion Matrix:  |               |
+|---------------------|---------------|
+|                    | Predicted     |
+|                    | 0    | 1   | 2  |
+|--------------------|------|-----|----|
+| Actual 0           |  885 | 280 |  67 |
+| Actual 1           |  296 | 596 | 374 |
+| Actual 2           |  40  | 275 | 887 |
+*Commentary on results. We finally achieved ____ result.*
+
 
 #### Model ___ (final)
 *EXAMPLE TABLE*
