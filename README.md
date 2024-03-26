@@ -35,8 +35,113 @@ Throughout our exploration, we meticulously adjusted hyperparameters, engineered
 The findings from our analyses, along with their corresponding results, have been meticulously summarized in the tables provided below. The finalized model, documented as Final_Housing_Characteristics_Classification_ML.ipynb, and Final_Housing_Characteristics_Regression_ML.ipynb
  encapsulates our approach and outcomes comprehensively.
 
-#### Model 1
-Logistic Regression
+To predict energy consumption or Total BTU, based on housing characteristics (i.e., type of home, # of rooms in the room, roofing type, insulation type, etc.), machine learning models for regression were first selected, before shifting to classification models. 
+
+First, a linear regression model was selected to serve as a baseline model due to its simplicity and the assumption that there would be a linear relationship between the feature variables (housing characteristics) and the target variable (total BTU).
+
+#### Model 1 - Linear Regression
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Data Split| test_size=0.2 |
+| Model | Linear Regression  |
+| Optimizer | None |
+| R<sup>2</sup> | 0.43 |
+
+The linear regression model's first run resulted in an R-squared value of .43. The model was then re-run with adjustments to the test size.
+
+#### Model 1 - Linear Regression Attempt 2
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Data Split| test_size=0.5 |
+| Model | Linear Regression  |
+| Optimizer | None |
+| R<sup>2</sup> | 0.42 |
+
+#### Model 1 - Linear Regression Attempt 3
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Data Split| test_size=0.05 |
+| Model | Linear Regression  |
+| Optimizer | None |
+| R<sup>2</sup> | 0.43 |
+
+With no significant changes to the R-squared value, the test size was kept at .2, but the coefficient and intercept of the model were reviewed to determine the strength of the relationship between the feature variables and the target variable. The following features were dropped: walltype (coefficient = 6.71), rooftype (coefficient = -20.30), equipm (coefficient = -130.22), and totsqft_en (17.7).
+
+#### Model 1 - Linear Regression Attempt 4
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features | Typehuq, yearmaderange, totrooms, numfrig, adqinsul, acequipm_pub |
+| Data Split| test_size=0.2 |
+| Model | Linear Regression  |
+| Optimizer | None |
+| R<sup>2</sup> | 0.39 |
+
+Which resulted in a lower R-squared value of .39. Next, the linear model 'Lasso' was used to find the best parameters for the model. Which resulted in an R-squared value of .43. 
+
+Random Forest Regressor was then used in the hopes of achieving a higher R2 value. 
+
+#### Model 2 - Random Forest 
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Data Split| test_size=0.2 |
+| Model | Random Forest |
+| N Estimator | 100 |
+| Optimizer | None |
+| R<sup>2</sup> | 0.47 |
+
+The Random Forest model was then adjusted only to include variables that had a high feature importance value (totsqft_en, equipm, totrooms, yearmaderange, and typehuq)
+
+#### Model 2 - Random Forest Attempt 2 
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features | totsqft_en, equipm, totrooms, yearmaderange, typehuq|
+| Data Split| test_size=0.2 |
+| Model | Random Forest |
+| N Estimator | 100 |
+| Optimizer | None |
+| R<sup>2</sup> | 0.37 |
+
+With a score of .37, I switched over to a DNN
+
+#### Model 3 - DNN
+
+| Variable | Value |
+| --- | --- |
+| Number of Hidden Layers | 2 |
+| Hidden Layer 1 Neurons | 128 |
+| Hidden Layer 1 Activation Function | ReLU |
+| Hidden Layer 2 Neurons | 64 |
+| Hidden Layer 2 Activation Function | ReLU |
+| Output Layer Activation Function | Sigmoid |
+| Number of Epochs | 100 |
+| Model Accuracy | |
+
+#### Model 4 - Logistic Regression (after binning)
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Data Split| test_size=0.2 |
+| Model | Logistic Regression  |
+| Optimizer | None |
+| R<sup>2</sup> | 0.43 |
 
 | Metric             | Value              |
 |--------------------|--------------------|
