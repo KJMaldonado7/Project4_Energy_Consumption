@@ -294,7 +294,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 #### Model 9
 | Variable | Value |
 | --- | --- |
-| Target | *totalbtu*|
+| Target | totalbtu|
 | Features | regionc, division, state_postal, ba_climate |
 | Target preparation | *StandardScaler*|
 | Data Split| test_size=0.2|
@@ -317,7 +317,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 | Model | Linear Regression  |
 | R<sup>2</sup> | 0.7529492375445945 |
 
-After binning the total_btu column, finally, we got R<sup>2</sup> as 0.75.
+After binning the totalbtu column, finally, we got R<sup>2</sup> as 0.75.
 ```# Define a function to perform binning on TOTALBTU column
 def bin_total_btu(total_btu):
     if total_btu < 55000:
