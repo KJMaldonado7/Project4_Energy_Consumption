@@ -102,17 +102,6 @@ Random Forest Regressor was then used in the hopes of achieving a higher R2 valu
 | Optimizer | None |
 | R<sup>2</sup> | 0.47 |
 
-**Classification Report:**
-|              | precision | recall | f1-score | support |
-|--------------|-----------|--------|----------|---------|
-| Class 0      |    0.69   |  0.71  |   0.70   |  1232   |
-| Class 1      |    0.50   |  0.45  |   0.47   |  1266   |
-| Class 2      |    0.65   |  0.69  |   0.67   |  1202   |
-| | | | | |
-|    accuracy  |           |        |   0.61   |  3700   |
-|   macro avg  |    0.61   |  0.62  |   0.61   |  3700   |
-|weighted avg  |    0.61   |  0.61  |   0.61   |  3700   |
-
 The Random Forest model was then adjusted only to include variables that had a high feature importance value (totsqft_en, equipm, totrooms, yearmaderange, and typehuq)
 
 #### Model 2 - Random Forest Attempt 2 
@@ -127,31 +116,9 @@ The Random Forest model was then adjusted only to include variables that had a h
 | Optimizer | None |
 | R<sup>2</sup> | 0.37 |
 
-**Classification Report:**
-|              | precision | recall | f1-score | support |
-|--------------|-----------|--------|----------|---------|
-| Class 0      |    0.73   |  0.71  |   0.72   |  1232   |
-| Class 1      |    0.52   |  0.49  |   0.51   |  1266   |
-| Class 2      |    0.67   |  0.73  |   0.70   |  1202   |
-||
-|    accuracy  |           |        |   0.64   |  3700   |
-|   macro avg  |    0.64   |  0.64  |   0.64   |  3700   |
-|weighted avg  |    0.64   |  0.64  |   0.64   |  3700   |
+Which resulted in a lower R2 value. 
 
-With a score of .37, we switched over to a DNN
-
-#### Model 3 - DNN
-
-| Variable | Value |
-| --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 128 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 64 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | |
+Binning was then used to switch over to classification models. 
 
 #### Model 4 - Logistic Regression (after binning)
 
@@ -161,8 +128,8 @@ With a score of .37, we switched over to a DNN
 | Features |  <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
 | Data Split| test_size=0.2 |
 | Model | Logistic Regression  |
-| Optimizer | None |
-| R<sup>2</sup> | 0.43 |
+| Optimizer | Liblinear |
+
 
 | Metric             | Value              |
 |--------------------|--------------------|
@@ -188,7 +155,40 @@ With a score of .37, we switched over to a DNN
 | Actual 2           |  90  | 222 |890 |
 
 
+#### Model 5 Random Forest Classifier
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features |  <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
+| N_Estimators| 400 |
+| Model | Random Forest  |
+| Optimizer | None |
+
+| Metric             | Value              |
+|--------------------|--------------------|
+| Accuracy           | 0.64               |
+
+**Classification Report:**
+|              | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| Class 0      |    0.73   |  0.70  |   0.72   |  1232   |
+| Class 1      |    0.51   |  0.49  |   0.50   |  1266   |
+| Class 2      |    0.66   |  0.72  |   0.69   |  1202   |
+||
+|    accuracy  |           |        |   0.64   |  3700   |
+|   macro avg  |    0.64   |  0.64  |   0.64   |  3700   |
+|weighted avg  |    0.63   |  0.64  |   0.63   |  3700   |
+
 #### Model 5 Feedforward Neural Network
+
+| Variable | Value |
+| --- | --- |
+| Target | TotalBTU |
+| Features |  <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
+| N_Estimators| 200 |
+| Model | Deep Neural Network  |
+| Optimizer | None |
 
 | Metric             | Value              |
 |--------------------|--------------------|
@@ -198,9 +198,9 @@ With a score of .37, we switched over to a DNN
 **Classification Report:**
 |              | precision | recall | f1-score | support |
 |--------------|-----------|--------|----------|---------|
-| Class 0      |    0.72   |  0.72  |   0.72   |  1232   |
-| Class 1      |    0.52   |  0.47  |   0.49   |  1266   |
-| Class 2      |    0.67   |  0.74  |   0.70   |  1202   |
+| Class 0      |    0.73   |  0.71  |   0.72   |  1232   |
+| Class 1      |    0.52   |  0.49  |   0.51   |  1266   |
+| Class 2      |    0.67   |  0.73  |   0.70   |  1202   |
 ||
 |    accuracy  |           |        |   0.64   |  3700   |
 |   macro avg  |    0.64   |  0.64  |   0.64   |  3700   |
