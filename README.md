@@ -4,7 +4,7 @@
 We attempted to build a machine learning model that could accurately predict estimated costs and consumption of energy by houses based on a variety of characteristics. Our goal is to achieve over 75% accuracy or an R<sup>2</sup> value above 0.75.
 
 ### Data Source
-We used data from the US Energy Information Administration's [2020 Residential Energy Consumption Survey](https://www.eia.gov/consumption/residential/data/2020/index.php?view=microdata). We initially downloaded this data as a CSV for initial cleaning. That file is in the main repo under `recs2020_public_v7.csv`.
+We used data from the US Energy Information Administration's [2020 Residential Energy Consumption Survey](https://www.eia.gov/consumption/residential/data/2020/index.php?view=microdata). We initially downloaded this data as a CSV for initial cleaning. That file is in the Resources directory under `recs2020_public_v7.csv`. We've also included an index of columns from EIA in the Resources directory as well under `RECS 2020 Codebook for Public File - v7.xlsx`.
 
 ## Data Preprocessing
 The file in which we preprocessed our data can be found in the main repo under `Project-4-DataFrames.ipynb`.
@@ -17,7 +17,7 @@ We first divided our data into four different areas:
 
 We saved those tables in the `Table_CSVs` directory, as well as other tables outlining the meaning of the values of each column.
 
-We created a SQL database of our tables in PostgreSQL. This was because the data was already tabular in origin. That database creation can be found in the main repo under `Energy_Output_Expenses.sql`.
+We created a SQL database of our tables in PostgreSQL. This was because the data was already tabular in origin. That database creation can be found in the Database directory under `Energy_Output_Expenses.sql`.
 
 ### Target Variables
 For all of our models, we used the target variables of `TOTALBTU` (amount of energy used) or `TOTALDOL` (amount of money spent on energy generation).
@@ -27,13 +27,12 @@ For all of ur models, we removed the `DOIED` variable, which is just an identifi
 
 ## Compiling, Training, and Evaluating the Models
 
-### Housing Characterics - Keisha, Joseph
+### Housing Characterics
 Upon employing machine learning techniques to generate predictions based on our designated dataset, our objective was to attain a minimum accuracy threshold of 75% or an R-squared value of 0.75. This pursuit led us to explore various models, including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network.
 
 Throughout our exploration, we meticulously adjusted hyperparameters, engineered features, manipulated targets, and implemented diverse data splits to mitigate the risk of model overfitting. However, it was only upon the decision to discretize the target variables that we ultimately observed favorable outcomes from our model. Subsequently, we refined our approach, employing linear regression with binned targets to achieve the desired results.
 
-The findings from our analyses, along with their corresponding results, have been meticulously summarized in the tables provided below. The finalized model, documented as Final_Housing_Characteristics_Classification_ML.ipynb, and Final_Housing_Characteristics_Regression_ML.ipynb
- encapsulates our approach and outcomes comprehensively.
+The findings from our analyses, along with their corresponding results, have been meticulously summarized in the tables provided below. You can find our optimization attempts in the `Optimizations` directory. The finalized models can be found in the main repo documented as `Final_Housing_Characteristics_Classification_ML.ipynb`, and `Final_Housing_Characteristics_Regression_ML.ipynb`. These encapsulate our approach and outcomes comprehensively.
 
 To predict energy consumption or Total BTU, based on housing characteristics (i.e., type of home, # of rooms in the room, roofing type, insulation type, etc.), machine learning models for regression were first selected, before shifting to classification models. 
 
@@ -44,7 +43,7 @@ First, a linear regression model was selected to serve as a baseline model due t
 | Variable | Value |
 | --- | --- |
 | Target | TotalBTU |
-| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Features | <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
 | Data Split| test_size=0.2 |
 | Model | Linear Regression  |
 | Optimizer | None |
@@ -57,7 +56,7 @@ The linear regression model's first run resulted in an R-squared value of .43. T
 | Variable | Value |
 | --- | --- |
 | Target | TotalBTU |
-| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Features | <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
 | Data Split| test_size=0.5 |
 | Model | Linear Regression  |
 | Optimizer | None |
@@ -68,7 +67,7 @@ The linear regression model's first run resulted in an R-squared value of .43. T
 | Variable | Value |
 | --- | --- |
 | Target | TotalBTU |
-| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Features | <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
 | Data Split| test_size=0.05 |
 | Model | Linear Regression  |
 | Optimizer | None |
@@ -81,7 +80,7 @@ With no significant changes to the R-squared value, the test size was kept at .2
 | Variable | Value |
 | --- | --- |
 | Target | TotalBTU |
-| Features | Typehuq, yearmaderange, totrooms, numfrig, adqinsul, acequipm_pub |
+| Features | <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>numfrig</li><li>adqinsul</li><li>acequipm_pub</li></ul> |
 | Data Split| test_size=0.2 |
 | Model | Linear Regression  |
 | Optimizer | None |
@@ -96,21 +95,20 @@ Random Forest Regressor was then used in the hopes of achieving a higher R2 valu
 | Variable | Value |
 | --- | --- |
 | Target | TotalBTU |
-| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Features | <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
 | Data Split| test_size=0.2 |
 | Model | Random Forest |
 | N Estimator | 100 |
 | Optimizer | None |
 | R<sup>2</sup> | 0.47 |
 
-| Classification Report:       |                  |
-|------------------------------|------------------|
+**Classification Report:**
 |              | precision | recall | f1-score | support |
 |--------------|-----------|--------|----------|---------|
 | Class 0      |    0.69   |  0.71  |   0.70   |  1232   |
 | Class 1      |    0.50   |  0.45  |   0.47   |  1266   |
 | Class 2      |    0.65   |  0.69  |   0.67   |  1202   |
-|--------------|-----------|--------|----------|---------|
+| | | | | |
 |    accuracy  |           |        |   0.61   |  3700   |
 |   macro avg  |    0.61   |  0.62  |   0.61   |  3700   |
 |weighted avg  |    0.61   |  0.61  |   0.61   |  3700   |
@@ -122,26 +120,25 @@ The Random Forest model was then adjusted only to include variables that had a h
 | Variable | Value |
 | --- | --- |
 | Target | TotalBTU |
-| Features | totsqft_en, equipm, totrooms, yearmaderange, typehuq|
+| Features | <ul><li>totsqft_en</li><li>equipm</li><li>totrooms</li><li>yearmaderange</li><li>typehuq</li></ul> |
 | Data Split| test_size=0.2 |
 | Model | Random Forest |
 | N Estimator | 100 |
 | Optimizer | None |
 | R<sup>2</sup> | 0.37 |
 
-| Classification Report:       |                  |
-|------------------------------|------------------|
+**Classification Report:**
 |              | precision | recall | f1-score | support |
 |--------------|-----------|--------|----------|---------|
 | Class 0      |    0.73   |  0.71  |   0.72   |  1232   |
 | Class 1      |    0.52   |  0.49  |   0.51   |  1266   |
 | Class 2      |    0.67   |  0.73  |   0.70   |  1202   |
-|--------------|-----------|--------|----------|---------|
+||
 |    accuracy  |           |        |   0.64   |  3700   |
 |   macro avg  |    0.64   |  0.64  |   0.64   |  3700   |
 |weighted avg  |    0.64   |  0.64  |   0.64   |  3700   |
 
-With a score of .37, I switched over to a DNN
+With a score of .37, we switched over to a DNN
 
 #### Model 3 - DNN
 
@@ -161,7 +158,7 @@ With a score of .37, I switched over to a DNN
 | Variable | Value |
 | --- | --- |
 | Target | TotalBTU |
-| Features | Typehuq, yearmaderange, totrooms, walltype, rooftype, adqinsul, numfrig, equipm, acequipm_pub, totsqft_en|
+| Features |  <ul><li>Typehuq</li><li>yearmaderange</li><li>totrooms</li><li>walltype</li><li>rooftype</li><li>adqinsul</li><li>numfrig</li><li>equipm</li><li>acequipm_pub</li><li>totsqft_en</li></ul> |
 | Data Split| test_size=0.2 |
 | Model | Logistic Regression  |
 | Optimizer | None |
@@ -171,88 +168,65 @@ With a score of .37, I switched over to a DNN
 |--------------------|--------------------|
 | Accuracy           | 0.5789             |
 
-| Classification Report:       |                  |
-|------------------------------|------------------|
+**Classification Report:**
 |              | precision | recall | f1-score | support |
 |--------------|-----------|--------|----------|---------|
 | Class 0      |    0.65   |  0.65  |   0.65   |  1232   |
 | Class 1      |    0.47   |  0.35  |   0.40   |  1266   |
 | Class 2      |    0.59   |  0.74  |   0.66   |  1202   |
-|--------------|-----------|--------|----------|---------|
+||
 |    accuracy  |           |        |   0.58   |  3700   |
 |   macro avg  |    0.57   |  0.58  |   0.57   |  3700   |
 |weighted avg  |    0.57   |  0.58  |   0.57   |  3700   |
 
-| Confusion Matrix:  |               |
-|---------------------|---------------|
-|                    | Predicted     |
-|                    | 0    | 1   | 2  |
+**Confusion Matrix:**
+|                    | Predicted| | |
 |--------------------|------|-----|----|
+|                    | 0    | 1   | 2  |
 | Actual 0           |  806 | 290 |136 |
 | Actual 1           |  343 | 446 |477 |
 | Actual 2           |  90  | 222 |890 |
 
 
-*Commentary on results. Next step chosen and why.*
+#### Model 5 Feedforward Neural Network
 
-**REPEAT BASED ON NUMBER OF STEPS IN YOUR CODE**
-
-#### Model 5
-Feedforward Neural Network
 | Metric             | Value              |
 |--------------------|--------------------|
 | Accuracy           | 0.64               |
-| Classification Report:       |                  |
-|------------------------------|------------------|
+
+
+**Classification Report:**
 |              | precision | recall | f1-score | support |
 |--------------|-----------|--------|----------|---------|
 | Class 0      |    0.72   |  0.72  |   0.72   |  1232   |
 | Class 1      |    0.52   |  0.47  |   0.49   |  1266   |
 | Class 2      |    0.67   |  0.74  |   0.70   |  1202   |
-|--------------|-----------|--------|----------|---------|
+||
 |    accuracy  |           |        |   0.64   |  3700   |
 |   macro avg  |    0.64   |  0.64  |   0.64   |  3700   |
 |weighted avg  |    0.64   |  0.64  |   0.64   |  3700   |
-| Confusion Matrix:  |               |
-|---------------------|---------------|
-|                    | Predicted     |
-|                    | 0    | 1   | 2  |
+
+**Confusion Matrix:**
+|                    | Predicted | | |
 |--------------------|------|-----|----|
-| Actual 0           |  885 | 280 |  67 |
-| Actual 1           |  296 | 596 | 374 |
-| Actual 2           |  40  | 275 | 887 |
-*Commentary on results. We finally achieved ____ result.*
+|                    | 0 | 1 | 2 |
+| Actual 0           | 885 | 280 |  67 |
+| Actual 1           | 296 | 596 | 374 |
+| Actual 2           | 40 | 275 | 887 |
 
-
-#### Model ___ (final)
-*EXAMPLE TABLE*
-
-| Variable | Value |
-| --- | --- |
-| Number of Hidden Layers | 2 |
-| Hidden Layer 1 Neurons | 80 |
-| Hidden Layer 1 Activation Function | ReLU |
-| Hidden Layer 2 Neurons | 30 |
-| Hidden Layer 2 Activation Function | ReLU |
-| Output Layer Activation Function | Sigmoid |
-| Number of Epochs | 100 |
-| Model Accuracy | 0.7301457524299622 |
-
-*Commentary on results. We finally achieved ____ result.*
-
-### Energy-efficient upgrades - Joanna
+### Energy-efficient upgrades
 In our journey to improve energy efficiency predictions, we tried out several different approaches to make sure our models were accurate at least close to 75% of the time. We tested various methods like Linear Regression, Random Forest, and Deep Learning networks. Additionally, we refined our data analysis techniques, implementing various data splitting strategies to foster improved learning within the models, avoiding mere memorization. 
 
-The trial files are stored in the directory 'energy_consumption_ML_tries'.
+The trial files are stored in the directory `Optimizations`.
 
-The ultimate model is located in the root directory and named 'Final_Energy_Consumption_Model.ipynb'.
+The ultimate model is located in the root directory and named `Final_Energy_Consumption_Model.ipynb`.
 
 #### Model 1
 
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol |
+| Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Random Forrest |
 | Optimizer | RandomForestRegressor|
@@ -263,7 +237,7 @@ The ultimate model is located in the root directory and named 'Final_Energy_Cons
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol  |
+| Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Random Forrest |
 | Optimizer | RandomForestRegressor|
@@ -274,7 +248,7 @@ The ultimate model is located in the root directory and named 'Final_Energy_Cons
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol |
+| Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Linear Regression |
 | Optimizer | Linear Regression |
@@ -285,7 +259,7 @@ The ultimate model is located in the root directory and named 'Final_Energy_Cons
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol |
+| Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.1*|
 | Model | Linear Regression |
 | Optimizer | Linear Regression |
@@ -296,7 +270,7 @@ The ultimate model is located in the root directory and named 'Final_Energy_Cons
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features |  dwcycle, tvtype1, typetherm, lgtinled, smartmeter, solar, elecveh, totaldol  |
+| Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Linear Regression |
 | Optimizer | Linear Regression |
@@ -304,13 +278,13 @@ The ultimate model is located in the root directory and named 'Final_Energy_Cons
 
 In our final attempt, we implemented a crucial step by categorizing the energy consumption DataFrame into three distinct bins: 'Low', 'Medium', and 'High'. This categorization was based on specific thresholds of 55000 and 95000, effectively dividing the data into different consumption levels for better analysis. The bin_total_btu function was applied to create a new column 'BTU_Bin' within the DataFrame, signifying the respective binned categories. Following this, one-hot encoding was utilized on the 'BTU_Bin' column to transform it into a numerical format suitable for machine learning models. During this process, the target variable 'totalbtu' was separated and labeled as 'y', while the features were organized and stored as 'X' for subsequent modeling and in-depth analysis. This systematic approach directly aligns with our primary objective of enhancing energy efficiency predictions by incorporating categorized energy levels into our modeling pipeline, thereby facilitating more accurate and insightful predictive modeling outcomes.
 
-### Regional Information - Michele
+### Regional Information
 After conducting ten iterations and trials, our objective of achieving a minimum accuracy threshold of 75% or an R-squared value of 0.75 led us to explore several models, including Linear Regression, Random Forest, CatBoost, LightGBM, and Deep Learning Network. Throughout these endeavors, we adjusted hyperparameters, engineered features, manipulated targets, and employed diverse data splits to safeguard against model overfitting. ​However, it was only after the decision to discretize the target variables that we ultimately realized favorable outcomes from our model.
 The refined model employed linear regression with binned targets to deliver the desired results.
 
 The tables below summarize the most pertinent experiments conducted along with their respective results. Each table's name corresponds to the specific model attempt, providing a clear reference for further analysis and comparison.
 
-The attempts files are saved in the folder `regional_attempts`.
+The attempts files are saved in the folder `Optimizations`.
 
 The final model is on the root under the name `Final_Regional_Model.ipynb`
 
@@ -318,7 +292,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | regionc, division, state_postal, ba_climate |
+| Features | <ul><li>regionc</li><li>division</li><li>state_postal</li><li>ba_climate</li></ul> |
 | Data Split| test_size=0.25 |
 | Model | Linear Regression / Random Forest  |
 | Optimizer | RandomForestRegressor |
@@ -328,7 +302,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | regionc, division, state_postal, ba_climate |
+| Features | <ul><li>regionc</li><li>division</li><li>state_postal</li><li>ba_climate</li></ul> |
 | Data Split| test_size=0.2|
 | Model | *CatBooster*  |
 | R<sup>2</sup> | 0.11186680602851973|
@@ -337,7 +311,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | regionc, division, state_postal, ba_climate |
+| Features | <ul><li>regionc</li><li>division</li><li>state_postal</li><li>ba_climate</li></ul> |
 | Data Split| test_size=0.2|
 | Model | *LightGBM*  |
 | R<sup>2</sup> | 0.11176486825412113|
@@ -346,7 +320,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu|
-| Features | regionc, division, state_postal, ba_climate |
+| Features | <ul><li>regionc</li><li>division</li><li>state_postal</li><li>ba_climate</li></ul> |
 | Target preparation | *StandardScaler*|
 | Data Split| test_size=0.2|
 | Model | *Keras Sequential*  |
@@ -363,7 +337,7 @@ The final model is on the root under the name `Final_Regional_Model.ipynb`
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu *(binned the Target)*|
-| Features | regionc, division, state_postal, ba_climate |
+| Features | <ul><li>regionc</li><li>division</li><li>state_postal</li><li>ba_climate</li></ul> |
 | Data Split| *test_size=0.05* |
 | Model | Linear Regression  |
 | R<sup>2</sup> | 0.7529492375445945 |
@@ -380,7 +354,7 @@ def bin_total_btu(total_btu):
 ```
 
 
-### Demographic Information - Austin
+### Demographic Information
 We pulled demographic information from the energy consumption survey including data such as the age of the primary homeowner, number of children and total household members, and total household income, among other things. Our goal was to see if a machine learning model could accurately predict the home's total energy consumption ('TOTALBTU') based on these demographic characteristics.
 
 Our first attempt involved setting the target variable as 'TOTALBTU' and the feature variables as the rest of the columns (minus the ID column) and initializing a linear regression model. This model proved to be quite ineffective, returning an R<sup>2</sup> score of just 0.19.
@@ -389,12 +363,14 @@ Our second attempt involved creating a scaler instance and using a Keras Seaquen
 
 The final and most successful attempt incorprated binning of the 'TOTALBTU' column into three bins of 'Low,' 'Medium,' and 'High' energy output before initializing a linear regression model. With the data grouped into three distinct categories, the model was much more successful in predicting household energy output and returned an R<sup>2</sup> score of 0.79.
 
+The demographics modeling can be found in the main repo in the `Final_Demographics_Model.ipynb`.
+
 #### Model 1
 
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | hhsex, hhage, employhh, education, sdescent, householder_race, nhsldmem, numchild, moneypy |
+| Features | <ul><li>hhsex</li><li>hhage</li><li>employhh</li><li>education</li><li>sdescent</li><li>householder_race</li><li>nhsldmemv</li><li>numchild</li><li>moneypy</li></ul> |
 | Data Split| test_size=0.2 |
 | Model | Linear Regression |
 | Model Accuracy | 0.18746129854499471 |
@@ -404,7 +380,7 @@ The final and most successful attempt incorprated binning of the 'TOTALBTU' colu
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | hhsex, hhage, employhh, education, sdescent, householder_race, nhsldmem, numchild, moneypy |
+| Features | <ul><li>hhsex</li><li>hhage</li><li>employhh</li><li>education</li><li>sdescent</li><li>householder_race</li><li>nhsldmemv</li><li>numchild</li><li>moneypy</li></ul> |
 | Target preparation | *StandardScaler*|
 | Data Split| random_state=78 |
 | Model | Keras Sequential  |
@@ -422,7 +398,7 @@ The final and most successful attempt incorprated binning of the 'TOTALBTU' colu
 | Variable | Value |
 | --- | --- |
 | Target | totalbtu |
-| Features | hhsex, hhage, employhh, education, sdescent, householder_race, nhsldmem, numchild, moneypy |
+| Features | <ul><li>hhsex</li><li>hhage</li><li>employhh</li><li>education</li><li>sdescent</li><li>householder_race</li><li>nhsldmemv</li><li>numchild</li><li>moneypy</li></ul> |
 | Target preparation | *StandardScaler*|
 | Data Split| test_size=0.1, random_state=45 |
 | Model | Linear Regression  |
@@ -439,4 +415,4 @@ On the final model, after we binned the target we were finally able to reach ove
 ```
 
 ## Summary
-Our best results came after binning our target variables (whether that be `TOTALBTU` or `TOTALDOL`). This likely the result of the large variance of our target variables and as a result, it makes sense to bin them as we did. This allowed us to achieve our 75% accuracy goal and 80% R<sup>2</sup> value.
+Our best results came after binning our target variables (whether that be `TOTALBTU` or `TOTALDOL`). This likely the result of the large variance of our target variables and as a result, it makes sense to bin them as we did. This allowed us to achieve our 75% accuracy goal and 75% R<sup>2</sup> value.
