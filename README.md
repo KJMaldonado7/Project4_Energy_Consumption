@@ -214,7 +214,7 @@ Binning was then used to switch over to classification models.
 | Actual 1           | 296 | 596 | 374 |
 | Actual 2           | 40 | 275 | 887 |
 
-### Energy-efficient upgrades
+### Energy-Efficiency
 In our journey to improve energy efficiency predictions, we tried out several different approaches to make sure our models were accurate at least close to 75% of the time. We tested various methods like Linear Regression, Random Forest, and Deep Learning networks. Additionally, we refined our data analysis techniques, implementing various data splitting strategies to foster improved learning within the models, avoiding mere memorization. 
 
 The trial files are stored in the directory `Optimizations`.
@@ -229,7 +229,6 @@ The ultimate model is located in the root directory and named `Final_Energy_Cons
 | Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Random Forrest |
-| Optimizer | RandomForestRegressor|
 | R<sup>2</sup> | 0.5760602548867669
 
 #### Model 2
@@ -240,7 +239,6 @@ The ultimate model is located in the root directory and named `Final_Energy_Cons
 | Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Random Forrest |
-| Optimizer | RandomForestRegressor|
 | R<sup>2</sup> | 0.5772147759816009
 
 #### Model 3
@@ -251,7 +249,6 @@ The ultimate model is located in the root directory and named `Final_Energy_Cons
 | Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Linear Regression |
-| Optimizer | Linear Regression |
 | R<sup>2</sup> | 0.5994969333217187 |
 
 #### Model 4
@@ -262,7 +259,6 @@ The ultimate model is located in the root directory and named `Final_Energy_Cons
 | Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.1*|
 | Model | Linear Regression |
-| Optimizer | Linear Regression |
 | R<sup>2</sup> | 0.6994187472726883 |
 
 #### Model 5 (final)
@@ -273,9 +269,17 @@ The ultimate model is located in the root directory and named `Final_Energy_Cons
 | Features | <ul><li>dwcycle</li><li>tvtype1</li><li>typetherm</li><li>lgtinled</li><li>smartmeter</li><li>solar</li><li>elecveh</li><li>totaldol</li></ul> |
 | Data Split| *test_size=0.2*|
 | Model | Linear Regression |
-| Optimizer | Linear Regression |
 | R<sup>2</sup> | 0.7933460682175177 |
 
+On the final model, after we binned the target we were finally able to reach over 79% accuracy.
+```def bin_total_btu(total_btu):
+    if total_btu < 55000:
+        return 'Low'
+    elif total_btu >= 55000 and total_btu < 95000:
+        return 'Medium'
+    else:
+        return 'High`
+```
 In our final attempt, we implemented a crucial step by categorizing the energy consumption DataFrame into three distinct bins: 'Low', 'Medium', and 'High'. This categorization was based on specific thresholds of 55000 and 95000, effectively dividing the data into different consumption levels for better analysis. The bin_total_btu function was applied to create a new column 'BTU_Bin' within the DataFrame, signifying the respective binned categories. Following this, one-hot encoding was utilized on the 'BTU_Bin' column to transform it into a numerical format suitable for machine learning models. During this process, the target variable 'totalbtu' was separated and labeled as 'y', while the features were organized and stored as 'X' for subsequent modeling and in-depth analysis. This systematic approach directly aligns with our primary objective of enhancing energy efficiency predictions by incorporating categorized energy levels into our modeling pipeline, thereby facilitating more accurate and insightful predictive modeling outcomes.
 
 ### Regional Information
